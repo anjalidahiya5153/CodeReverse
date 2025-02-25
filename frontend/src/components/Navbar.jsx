@@ -1,42 +1,18 @@
-import React, {useState, useContext, useEffect} from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import "../styles/Navbar.css"; // Add styles here if needed
+import "../styles/Navbar.css"; // Import CSS
 import AuthModal from "../auth/AuthModal";
 import { AuthContext } from "../auth/AuthContext";
-
-
-// const Navbar = () => {
-//   return (
-//     <nav className="navbar">
-//       <div className="logo">CodeReverse</div>
-//       <div className="menu">
-//         {/* Use 'to' for routing */}
-//         <Link to="/">Home</Link>
-//         <Link to="/practicemode">practice mode</Link>
-//         <Link to="/leaderboard">Leaderboard</Link>
-//         <Link to="/about">About</Link>
-//         <Link to="/contact">Contact</Link>
-//       </div>
-//       <div className="profile">
-//         <button className="btn login-btn">Login</button>
-//         <button className="btn signup-btn">Sign Up</button>
-//       </div>
-//     </nav>
-//   );
-// };
-
-// export default Navbar;
 
 const Navbar = () => {
   const [showLogin, setShowLogin] = useState(false);
   const [showSignup, setShowSignup] = useState(false);
-  const { isLoggedIn, logout } = useContext(AuthContext); // Get the login status from context
+  const { isLoggedIn, logout } = useContext(AuthContext);
   const navigate = useNavigate();
 
   useEffect(() => {
-    console.log('Navbar component mounted');
+    console.log("Navbar component mounted");
   }, []);
-  
 
   const handleLoginClick = () => {
     setShowLogin(true);
@@ -49,91 +25,57 @@ const Navbar = () => {
   };
 
   const handleLogout = () => {
-    console.log('logout button clicked!!');
+    console.log("Logout button clicked!!");
     logout();
-    navigate('/');
-  }
+    navigate("/");
+  };
 
   return (
-    <nav className="bg-light">
-      
-      <div className="container mx-auto py-8 flex justify-between items-center">
-        {/* Logo */}
-        <div>
-          <Link to="/">
-            Home
-          </Link>
+    <nav className="navbar">
+      <div className="navbar-container">
+        {/* Logo (Left-aligned) */}
+        <div className="logo">
+          <Link to="/">CodeReverse</Link>
         </div>
 
-       
-
-        {/* Include AuthModal */}
-        <AuthModal
-          showLogin={showLogin}
-          showSignup={showSignup}
-          setShowLogin={setShowLogin}
-          setShowSignup={setShowSignup}
-        />
-
-        {/* Icons and Auth Links */}
-        <div className="flex items-center space-x-6">
-          <Link to="/practicemode">
-            PracticeMode
-          </Link>
-          <Link to="/leaderboard">
-            LeaderBoard
-          </Link>
-          <Link to="/about">
-            about
-          </Link>
-          <Link to="/contact">
-            contact
-          </Link>
-
-           {/* Conditionally render "View Profile" or "Login/Signup" based on authentication status */}
-          {isLoggedIn ? (
-            <>
-            
-            <button onClick={handleLogout} className='text-lg hover:underline'>Logout</button>
-            </>
-          ) : (
-            <>
-              <button onClick={handleLoginClick} className="text-lg hover:underline">
-                Login
-              </button>
-              <button onClick={handleSignupClick} className="text-lg hover:underline">
-                Signup
-              </button>
-            </>
-          )}
-        </div>
-      </div>
-
-      {/* Navigation Links and Search Bar */}
-      <div className="bg-gray-200 py-2">
-        <div className="ml-10 container mx-auto flex justify-between items-center space-x-6">
-          {/* Navigation Links */}
-          <div className="flex space-x-10">
-            <Link to="/about" className="hover:underline">About</Link>
-            <Link to="/contact" className="hover:underline">Contact</Link>
-            <Link to="/practicemode" className="hover:underline">PracticeMode</Link>
-            <Link to="/challengemode" className="hover:underline">ChallengeMode</Link>
-            <Link to="/leaderboard" className="hover:underline">Leaderboard</Link>
-            <Link to="/questions" className="hover:underline">Questions</Link>
-            <Link to="/profile">Profile</Link>
-    
+        {/* Right-aligned elements */}
+        <div className="nav-right">
+          <div className="nav-links">
+            <Link to="/leaderboard">Leaderboard</Link>
+            <Link to="/about">About</Link>
           </div>
 
-          {/* Search Bar */}
-          <div>
-            <input 
-              type="text" 
-              placeholder="Search..." 
-              className="px-4 py-2 border border-gray-300 rounded-lg w-64 mr-4"
-            />
+          {/* Authentication Buttons */}
+          <div className="auth-buttons">
+            {isLoggedIn ? (
+              <>
+                <Link to="/profile" className="profile-link">Profile</Link>
+                <button onClick={handleLogout} className="logout-btn">
+                  Logout
+                </button>
+              </>
+            ) : (
+              <>
+                <button onClick={handleLoginClick} className="login-btn">
+                  Login
+                </button>
+                <button onClick={handleSignupClick} className="signup-btn">
+                  Signup
+                </button>
+              </>
+            )}
           </div>
         </div>
       </div>
+
+
+      {/* Auth Modal */}
+      <AuthModal
+        showLogin={showLogin}
+        showSignup={showSignup}
+        setShowLogin={setShowLogin}
+        setShowSignup={setShowSignup}
+      />
     </nav>
   );
 };
