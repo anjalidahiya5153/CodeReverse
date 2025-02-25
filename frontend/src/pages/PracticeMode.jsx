@@ -24,7 +24,7 @@ const PracticeMode = () => {
     const fetchQuestions = async () => {
       setIsLoading(true);
       try {
-        const API_KEY = "AIzaSyBawwFW0wKhFnIjt1Z2wcdenqjGtfzzcIo"; // Add your API key here
+        const API_KEY = ""; //api not fetching from .env hence hardcoded
         const genAI = new GoogleGenerativeAI(API_KEY);
         const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
