@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/HintModal.css"; // Add styles here if needed
+import "../styles/HintModal.css"; 
 
 const HintModal = ({ show, onClose, hint }) => {
   if (!show) return null;

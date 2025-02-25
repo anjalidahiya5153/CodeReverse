@@ -28,7 +28,7 @@
   }
   
   .btn {
-    background-color: #21a1f1;
+    background-color: #f44336;
     color: white;
     padding: 15px 30px;
     font-size: 1rem;
@@ -39,7 +39,7 @@
   }
   
   .btn:hover {
-    background-color: #1073b0;
+    background-color: #f9382a;
   }
   
   .challenge-mode .timer {

@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import "../styles/Navbar.css"; // Import CSS
 import AuthModal from "../auth/AuthModal";
 import { AuthContext } from "../auth/AuthContext";
@@ -9,6 +9,7 @@ const Navbar = () => {
   const [showSignup, setShowSignup] = useState(false);
   const { isLoggedIn, logout } = useContext(AuthContext);
   const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     console.log("Navbar component mounted");
@@ -30,6 +31,8 @@ const Navbar = () => {
     navigate("/");
   };
 
+  const isHomePage = location.pathname === "/";
+
   return (
     <nav className="navbar">
       <div className="navbar-container">
@@ -41,6 +44,12 @@ const Navbar = () => {
         {/* Right-aligned elements */}
         <div className="nav-right">
           <div className="nav-links">
+          {!isHomePage && (
+              <>
+                <Link to="/practicemode">Practice Mode</Link>
+                <Link to="/challengemode">Challenge Mode</Link>
+              </>
+            )}
             <Link to="/leaderboard">Leaderboard</Link>
             <Link to="/about">About</Link>
           </div>
@@ -49,7 +58,12 @@ const Navbar = () => {
           <div className="auth-buttons">
             {isLoggedIn ? (
               <>
-                <Link to="/profile" className="profile-link">Profile</Link>
+              <div className="nav-right">
+              <div className="nav-links">
+              <Link to="/profile" className="profile-link">Profile</Link>
+              </div>
+              </div>
+              
                 <button onClick={handleLogout} className="logout-btn">
                   Logout
                 </button>

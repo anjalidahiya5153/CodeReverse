@@ -1,9 +1,12 @@
 import React, { useState, useContext } from 'react';
+import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 import '../styles/AuthModal.css';
 import { AuthContext } from './AuthContext';
 
-const AuthModal = ({ showLogin, showSignup, setShowLogin, setShowSignup }) => {
+
+const AuthModal = ({ showLogin, showSignup, setShowLogin, setShowSignup, redirectPath }) => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -27,6 +30,10 @@ const AuthModal = ({ showLogin, showSignup, setShowLogin, setShowSignup }) => {
       localStorage.setItem('token', res.data.token);
       setIsLoggedIn(true); // Update the AuthContext to reflect the logged-in state
       setShowLogin(false);  // Close the modal on success
+
+      if (redirectPath) {
+        navigate(redirectPath);
+      }
     } catch (err) {
       alert('Error logging in');
     }
@@ -79,7 +86,7 @@ const AuthModal = ({ showLogin, showSignup, setShowLogin, setShowSignup }) => {
             </form>
             <p className="modal-footer">
               Don't have an account?{' '}
-              <button onClick={() => {setShowSignup(true); setShowLogin(false);}} className="text-blue-500 hover:underline">
+              <button onClick={() => {setShowSignup(true); setShowLogin(false);}} className="text-orange-500 hover:underline">
                 Create one here
               </button>
             </p>
@@ -126,7 +133,7 @@ const AuthModal = ({ showLogin, showSignup, setShowLogin, setShowSignup }) => {
             </form>
             <p className="modal-footer">
               Already have an account?{' '}
-              <button onClick={() => {setShowLogin(true); setShowSignup(false);}} className="text-blue-500 hover:underline">
+              <button onClick={() => {setShowLogin(true); setShowSignup(false);}} className="text-orange-500 hover:underline">
                 Login here
               </button>
             </p>
