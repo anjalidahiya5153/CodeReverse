@@ -1,3 +1,8 @@
+
+.challenge-mode .title{
+  margin-top: 90px;
+}
+
 .challenge-mode h2 {
   font-size: 28px;
   font-weight: bold;
@@ -5,13 +10,13 @@
   text-transform: uppercase;
   color: #6289bd;
   letter-spacing: 1.5px;
-  margin-top: 100px; /* Reduced from 100px to 50px */
-  margin-bottom: 5px; /* Reduced bottom margin */
+  margin-top: 10px;
+  margin-bottom: 5px; 
   text-shadow: 2px 2px 5px #ecedef;
 }
 
 .challenge-mode .error-message{
-  color:#dc3545;
+  color:#e2413570;
 }
 
 .challenge-mode p {
@@ -23,18 +28,17 @@
 
 .split-container {
   display: flex;
-  height: 60vh; /* Reduced height */
   width: 90%;
-  padding: 0 20px; /* Reduced padding */
-  margin: auto; /* Centers the container horizontally */
-  justify-content: center; /* Centers child elements horizontally */
-  align-items: center; /* Centers child elements vertically */
+  padding: 0 8px; 
+  margin: auto; 
+  justify-content: center; 
+  align-items: center; 
 }
 
 
 .left-section {
   flex-basis: 50%;
-  padding:0px 10px; /* Increased padding */
+  padding:0px 1px; /* Increased padding */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -42,7 +46,7 @@
 
 .right-section {
   flex-basis: 50%;
-  padding: 10px; /* Increased padding */
+  padding: 0 3px; /* Increased padding */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -52,9 +56,10 @@
 .code-container {
   background: #282c34;
   color: #fff;
-  padding: 15px;
+  padding: 10px;
   border-radius: 8px;
   margin-bottom: 20px;
+  max-width: 100%;
 }
 
 .mcq-container {
@@ -67,25 +72,25 @@
 
 .mcq-btn {
   width: 100%;
-  max-width: 350px; /* Increased button width */
-  padding: 10px 20px; /* Larger buttons */
-  font-size: 18px; /* Bigger text */
+  max-width: 80%; 
+  padding: 10px 20px; 
+  font-size: 18px; 
   font-weight: bold;
-  border-radius: 10px; /* Softer edges */
-  border: 2px solid grey;
+  border-radius: 10px;
+  border: 2px solid rgb(224, 221, 221);
   transition: all 0.3s ease;
 }
 
 .mcq-btn:hover {
-  background: #bebec2;
+  background: #e3e3eb;
 }
 
 .correct {
-  background: #4caf50;
+  background: #56e75c5e;
 }
 
 .incorrect {
-  background: #f44336;
+  background: #e2413570;
 }
 
 .popup-overlay {
@@ -111,21 +116,6 @@
   animation: fadeIn 0.3s ease-in-out;
 }
 
-.close-icon {
-  position: static; /* Positions it inside the popup */
-  top: 10px; /* Distance from the top */
-  right: 10px; /* Distance from the right */
-  background: none;
-  border: none;
-  font-size: 24px; /* Slightly bigger for better visibility */
-  cursor: pointer;
-  color: #ff4d4d;
-}
-
-.close-icon:hover {
-  color: #ff0000;
-}
-
 /* Responsive adjustments */
 @media (max-width: 600px) {
   .close-icon {
@@ -138,13 +128,13 @@
 .timer {
   font-size: 1.5rem;
   font-weight: bold;
-  color: rgb(232, 68, 68);
+  color: #e2413570;
   margin-bottom: 10px;
   text-align: center;
 }
 
 .error-message {
-  color: red;
+  color: #e2413570;
   font-weight: bold;
 }
 

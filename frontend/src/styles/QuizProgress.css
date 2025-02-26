@@ -30,7 +30,7 @@
   }
   
   .step.active .step-number {
-    background-color: #87b8f9;
+    background-color: #90AACB;
     color: rgb(255, 255, 255);
   }
   
@@ -54,6 +54,6 @@
   }
   
   .step.active::after {
-    background-color: #87b8f9;
+    background-color: #90AACB;
   }
   

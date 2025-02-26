@@ -1,20 +1,23 @@
 import React from "react";
 import { PieChart, Pie, Cell, Legend, Tooltip } from "recharts";
 import "../styles/ScorePage.css";
+import { Label } from './../../node_modules/recharts/es6/component/Label';
 
-const ScorePage = ({ score, totalQuestions, onReset }) => {
+const ScorePage = ({ score, totalQuestions, onClose, onReset }) => {
   const wrongAnswers = totalQuestions - score;
 
   const data = [
-    { name: "Correct Answers", value: score },
-    { name: "Wrong Answers", value: wrongAnswers },
+    { name: "Correct", value: score },
+    { name: "Wrong", value: wrongAnswers },
   ];
 
-  const COLORS = ["#4CAF50", "#F44336"]; // Green for correct, Red for wrong
+  const COLORS = ["#33ac38e3", "#e24135cf"];
 
   return (
     <div className="score-page">
-      <h2>Practice Session Complete!</h2>
+      <button className="close-icon" onClick={onClose}>✖</button>
+
+      <h2>Session Complete!</h2>
       <p className="final-score">
         You got <span className="score">{score}</span> out of{" "}
         <span className="total">{totalQuestions}</span> questions correct.
@@ -30,7 +33,6 @@ const ScorePage = ({ score, totalQuestions, onReset }) => {
             outerRadius={120}
             fill="#8884d8"
             dataKey="value"
-
           >
             {data.map((entry, index) => (
               <Cell key={`cell-${index}`} fill={COLORS[index]} />
@@ -41,9 +43,7 @@ const ScorePage = ({ score, totalQuestions, onReset }) => {
         </PieChart>
       </div>
 
-      <button className="btn reset-btn" onClick={onReset}>
-        Restart Practice
-      </button>
+      <button className="btn reset-btn" onClick={onReset}>Restart Practice</button>
     </div>
   );
 };

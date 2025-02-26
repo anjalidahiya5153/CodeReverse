@@ -24,7 +24,7 @@ const PracticeMode = () => {
     const fetchQuestions = async () => {
       setIsLoading(true);
       try {
-        const API_KEY = ""; //api not fetching from .env hence hardcoded
+        const API_KEY = process.env.REACT_APP_API_KEY;
         const genAI = new GoogleGenerativeAI(API_KEY);
         const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
@@ -117,8 +117,11 @@ const PracticeMode = () => {
     shuffleOptions(questions[randomIndex].mcq);
   };
   
+  const handleClosePopup = () => {
+    setShowScorePopup(false);
+  };
 
-  const resetPractice = () => {
+  const handleReset = () => {
     setUsedQuestions([0]);
     setCurrentIndex(0);
     setScore(0);
@@ -202,8 +205,12 @@ const PracticeMode = () => {
       {showScorePopup && (
         <div className="popup-overlay">
           <div className="popup">
-            <ScorePage score={score} totalQuestions={questions.length} />
-            <button className="close-btn" onClick={() => setShowScorePopup(false)}>Close</button>
+            <ScorePage
+              score={score}
+              totalQuestions={questions.length}
+              onClose={handleClosePopup} 
+              onReset={handleReset} 
+            />
           </div>
         </div>
       )}

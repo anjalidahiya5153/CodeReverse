@@ -32,8 +32,8 @@
   }
   
   .btn.reset-btn {
-    background-color: #6200ea;
-    color: white;
+    background-color: #90AACB;
+    color: rgb(255, 255, 255);
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
@@ -43,6 +43,21 @@
   }
   
   .btn.reset-btn:hover {
-    background-color: #3700b3;
+    background-color: #547196;
+  }
+
+  .close-icon {
+    position: relative;
+    top: 0;
+    right: -40%;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #e2413570;
+  }
+  
+  .close-icon:hover {
+    color: #e2413570;
   }
   

@@ -6,6 +6,8 @@ import "../styles/ChallengeMode.css";
 import ScorePage from "./ScorePage";
 import QuizProgress from "../components/QuizProgress";
 
+
+
 const TIMER_DURATION = 30; // Timer duration in seconds
 
 const ChallengeMode = () => {
@@ -27,7 +29,8 @@ const ChallengeMode = () => {
     const fetchQuestions = async () => {
       setIsLoading(true);
       try {
-        const API_KEY = "";
+        const API_KEY = process.env.REACT_APP_API_KEY;
+
         const genAI = new GoogleGenerativeAI(API_KEY);
         const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
@@ -118,6 +121,19 @@ const ChallengeMode = () => {
     shuffleOptions(selectedQuestion.mcq);
   };
   
+  const handleClosePopup = () => {
+    setShowScorePopup(false);
+  };
+
+  const handleReset = () => {
+    setUsedQuestions([0]);
+    setCurrentIndex(0);
+    setScore(0);
+    setRunning(true);
+    setShowScorePopup(false);
+    shuffleOptions(questions[0].mcq);
+  };
+
   const stopPractice = () => {
     setRunning(false);
     setShowScorePopup(true);
@@ -143,7 +159,7 @@ const ChallengeMode = () => {
 
   return (
     <div className="challenge-mode">
-      <h2>Challenge Mode</h2>
+      <h2 className="title">Challenge Mode</h2>
       <p>Test your coding knowledge under pressure!</p>
       
       <QuizProgress currentStep={score} totalSteps={questions.length} />
@@ -189,13 +205,18 @@ const ChallengeMode = () => {
       </div>
 
       {showScorePopup && (
-      <div className="popup-overlay">
-        <div className="popup">
-          <button className="close-icon" onClick={() => setShowScorePopup(false)}>✖</button>
-          <ScorePage score={score} totalQuestions={questions.length} />
+        <div className="popup-overlay">
+          <div className="popup">
+            <ScorePage
+              score={score}
+              totalQuestions={questions.length}
+              onClose={handleClosePopup} 
+              onReset={handleReset} 
+            />
+          </div>
         </div>
-      </div>
-    )}
+      )}
+
     </div>
   );
 };
