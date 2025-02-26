@@ -54,7 +54,7 @@
 }
 
 .nav-links a:hover {
-  color: #007bff;
+  color: #dc3545;
 }
 
 /* Authentication Buttons */
@@ -77,34 +77,33 @@
 
 .login-btn {
   background: transparent;
-  color: #007bff;
-  border: 1px solid #007bff;
+  color: #f44336;
+  border: 1px solid #f44336;
 }
 
 .signup-btn {
-  background: #007bff;
+  background: #f44336;
   color: #fff;
 }
 
 .logout-btn {
-  background: #dc3545;
+  background: #f44336;
   color: #fff;
 }
 
 .login-btn:hover {
-  background: #007bff;
+  background: #f9382a;
   color: white;
 }
 
 .signup-btn:hover {
-  background: #0056b3;
+  background: #f9382a;
 }
 
 .logout-btn:hover {
-  background: #c82333;
+  background: #f9382a;
 }
 
-/* Search Bar */
 .search-bar {
   background: #e9ecef;
   padding: 10px 20px;

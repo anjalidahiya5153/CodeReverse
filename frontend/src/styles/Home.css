@@ -46,7 +46,8 @@
 }
 
 .highlight {
-  color: #6c63ff;
+  /* color: #6c63ff; */
+  color: #f44336;
   font-weight: bold;
   text-decoration: underline;
 }
@@ -82,7 +83,8 @@
 }
 
 .btn {
-  background-color: #6c63ff;
+  /* background-color: #6c63ff; */
+  background-color: #f44336;
   color: white;
   border: none;
   padding: 10px 15px;
@@ -94,5 +96,6 @@
 }
 
 .btn:hover {
-  background-color: #5148d0;
+  /* background-color: #5148d0; */
+  background-color: #f9382a;
 }
