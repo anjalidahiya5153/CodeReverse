@@ -62,27 +62,36 @@ router.post('/login', async (req, res) => {
     }
 });
 
+
+
 //profile route
-router.get('/profile', authMiddleware, async(req, res) => {
-    try{
-        console.log('user id: ', req.user);
-        const user = await User.findById(req.user).populate('solvedQuestions bookmarkedQuestions');
-        if(!user){
-            return res.status(404).json({error: 'User not found'});
+router.get('/profile', authMiddleware, async (req, res) => {
+    try {
+        console.log('user id from req.user: ', req.user); // 🛠️ Debug line
+        
+        const user = await User.findById(req.user)
+            .populate('solvedQuestions')
+            .populate('bookmarkedQuestions');
+        
+        if (!user) {
+            console.log('User not found for ID:', req.user);
+            return res.status(404).json({ error: 'User not found' });
         }
 
-        // res.status(200).json({
-        //     username: user.username,
-        //     email : user.email,
-        //     score: user.score,
-        //     solvedQuestions: user.solvedQuestions,
-        //     bookmarkedQuestions : user.bookmarkedQuestions
-        // });
-        console.log('User fetched from DB in profile in backend:', user);
-    res.status(200).json(user);
-    }catch(error){
-        res.status(500).json({error: "Failed to fetch profile data..in authRoutes..."});
+        console.log('User fetched from DB in profile in backend:', user); // 🛠️ Debug line
+
+        res.status(200).json({
+            username: user.username,
+            email: user.email,
+            score: user.score,
+            solvedQuestions: user.solvedQuestions,
+            bookmarkedQuestions: user.bookmarkedQuestions
+        });
+    } catch (error) {
+        console.error('Error fetching profile:', error);
+        res.status(500).json({ error: 'Failed to fetch profile data..in authRoutes...' });
     }
 });
+
 
 module.exports = router;

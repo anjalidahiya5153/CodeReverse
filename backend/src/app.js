@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const authRoutes = require('./routes/authRoutes'); // Import auth routes
+const codeExecutionRoutes = require('./routes/codeExecutionRoutes');
 
 const app = express(); // Create an Express application
 
@@ -10,6 +11,7 @@ app.use(express.json()); // Parse incoming JSON requests
 
 // Routes
 app.use('/api/auth', authRoutes); // Route for authentication
+app.use('/api/code-execution', codeExecutionRoutes);
 
 // 404 Error Handling
 app.use((req, res, next) => {

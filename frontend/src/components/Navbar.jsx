@@ -4,29 +4,6 @@ import "../styles/Navbar.css"; // Add styles here if needed
 import AuthModal from "../auth/AuthModal";
 import { AuthContext } from "../auth/AuthContext";
 
-
-// const Navbar = () => {
-//   return (
-//     <nav className="navbar">
-//       <div className="logo">CodeReverse</div>
-//       <div className="menu">
-//         {/* Use 'to' for routing */}
-//         <Link to="/">Home</Link>
-//         <Link to="/practicemode">practice mode</Link>
-//         <Link to="/leaderboard">Leaderboard</Link>
-//         <Link to="/about">About</Link>
-//         <Link to="/contact">Contact</Link>
-//       </div>
-//       <div className="profile">
-//         <button className="btn login-btn">Login</button>
-//         <button className="btn signup-btn">Sign Up</button>
-//       </div>
-//     </nav>
-//   );
-// };
-
-// export default Navbar;
-
 const Navbar = () => {
   const [showLogin, setShowLogin] = useState(false);
   const [showSignup, setShowSignup] = useState(false);
@@ -121,6 +98,7 @@ const Navbar = () => {
             <Link to="/leaderboard" className="hover:underline">Leaderboard</Link>
             <Link to="/questions" className="hover:underline">Questions</Link>
             <Link to="/profile">Profile</Link>
+            <Link to="/code-editor">Code Editor</Link>
     
           </div>
 

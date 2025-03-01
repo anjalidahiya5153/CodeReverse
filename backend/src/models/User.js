@@ -7,7 +7,7 @@ const UserSchema = new Schema({
   password: { type: String, required: true },
   score: {type: Number, default: 0},
   solvedQuestions: [{type: mongoose.Schema.Types.ObjectId, ref: 'Question'}],
-  bookmarkedQuesions: [{type: mongoose.Schema.Types.ObjectId, ref: 'Qquestion'}],
+  bookmarkedQuestions: [{type: mongoose.Schema.Types.ObjectId, ref: 'Question'}],
 });
 
 module.exports = mongoose.model('User', UserSchema); //mongodb collection name -> users // mongoose auto pluralizes user 
