@@ -1,0 +1,33 @@
+/* General styling */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%; /* Ensure body and html take up the full height */
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%; /* Make the root element fill the height */
+}
+
+.main-content {
+  flex: 1; /* Pushes the footer to the bottom when content is less */
+}
+
+.footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #282c34;
+  color: white;
+}
+
+.footer .social-links a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #61dafb;
+}
+
+.footer .social-links a:hover {
+  color: #21a1f1;
+}
