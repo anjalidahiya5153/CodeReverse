@@ -48,6 +48,7 @@ const Navbar = () => {
               <>
                 <Link to="/practicemode">Practice Mode</Link>
                 <Link to="/challengemode">Challenge Mode</Link>
+                <Link to="/codecorrection">Code Correction</Link>
               </>
             )}
             <Link to="/leaderboard">Leaderboard</Link>

@@ -10,6 +10,7 @@ import Leaderboard from "./pages/Leaderboard";
 import { AuthProvider } from "./auth/AuthContext";
 import QuestionsPage from "./pages/QuestionsPage";
 import ProfilePage from "./pages/ProfilePage";
+import CodeCorrection from './pages/CodeCorrection';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/challengemode" element={<ChallengeMode/>} />
           <Route path="/leaderboard" element={<Leaderboard/>} />
           <Route path="/profile" element={<ProfilePage/>} />
+          <Route path="/codecorrection" element={<CodeCorrection/>} />
         </Routes>
       </div>
       {/* <Footer /> */}
