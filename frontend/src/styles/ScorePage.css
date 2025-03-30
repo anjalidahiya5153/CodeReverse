@@ -1,0 +1,63 @@
+.score-page {
+    text-align: center;
+    background: #ffffff;
+    color: rgb(0, 0, 0);
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 100%;
+    margin: auto;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .final-score {
+    font-size: 1.4rem;
+    margin: 15px 0;
+  }
+  
+  .score {
+    color: #4caf50;
+    font-weight: bold;
+  }
+  
+  .total {
+    color: #020202;
+    font-weight: bold;
+  }
+  
+  .chart-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 0;
+  }
+  
+  .btn.reset-btn {
+    background-color: #90AACB;
+    color: rgb(255, 255, 255);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .btn.reset-btn:hover {
+    background-color: #547196;
+  }
+
+  .close-icon {
+    position: relative;
+    top: 0;
+    right: -40%;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #e2413570;
+  }
+  
+  .close-icon:hover {
+    color: #e2413570;
+  }
+  

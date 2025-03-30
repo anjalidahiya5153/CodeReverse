@@ -1,0 +1,151 @@
+
+.challenge-mode .title{
+  margin-top: 90px;
+}
+
+.challenge-mode h2 {
+  font-size: 28px;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  color: #6289bd;
+  letter-spacing: 1.5px;
+  margin-top: 10px;
+  margin-bottom: 5px; 
+  text-shadow: 2px 2px 5px #ecedef;
+}
+
+.challenge-mode .error-message{
+  color:#e2413570;
+}
+
+.challenge-mode p {
+  font-size: 18px;
+  text-align: center;
+  color: #555;
+  margin-bottom: 0px;
+}
+
+.split-container {
+  display: flex;
+  width: 90%;
+  padding: 0 8px; 
+  margin: auto; 
+  justify-content: center; 
+  align-items: center; 
+}
+
+
+.left-section {
+  flex-basis: 50%;
+  padding:0px 1px; /* Increased padding */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.right-section {
+  flex-basis: 50%;
+  padding: 0 3px; /* Increased padding */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.code-container {
+  background: #282c34;
+  color: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  max-width: 100%;
+}
+
+.mcq-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Increased gap between buttons */
+  width: 100%;
+  align-items: center;
+}
+
+.mcq-btn {
+  width: 100%;
+  max-width: 80%; 
+  padding: 10px 20px; 
+  font-size: 18px; 
+  font-weight: bold;
+  border-radius: 10px;
+  border: 2px solid rgb(224, 221, 221);
+  transition: all 0.3s ease;
+}
+
+.mcq-btn:hover {
+  background: #e3e3eb;
+}
+
+.correct {
+  background: #56e75c5e;
+}
+
+.incorrect {
+  background: #e2413570;
+}
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup {
+  background: white;
+  padding: 0px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  width: 32%;
+  max-width: 90%;
+  text-align: center;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .close-icon {
+    top: 5px;
+    right: 5px;
+    font-size: 20px;
+  }
+}
+
+.timer {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #e2413570;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.error-message {
+  color: #e2413570;
+  font-weight: bold;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
